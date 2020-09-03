@@ -1,2 +1,2 @@
 # python_study
-first python study - test code
+## first python study - test code
