@@ -1,3 +1,25 @@
+"""
+[2020.09.04]
+퀴즈 2.
+1. A 학급에 총 10명의 학생이 있다. 이 학생들의 중간고사 점수는 다음과 같다.
+[70, 60, 55, 75, 95, 90, 80, 80, 85, 100]
+2. for문을 이용하여 A 학급의 중간고사 평균 점수를 구한다. (Numpy)
+"""
+# 평균 값 구하는 함수
+# 점수 list를 받아 처리
+def avg_score(score_list = []) :
+    total_score = 0
+    for score in score_list :
+        total_score += score
+    return int(total_score / len(score_list))
+
+# A 학급 평균 값 입력 (list or tuple 형태로 인자값 전달)
+a_class_scores = (70, 60, 55, 75, 95, 90, 80, 80, 85, 100)
+print('A 학급의 평균점수는 {0}점 입니다.'.format(avg_score(a_class_scores)))
+# 결과
+# A 학급의 평균점수는 79점 입니다.
+    
+
 """ 
 [2020.09.03]
 퀴즈 1. 
