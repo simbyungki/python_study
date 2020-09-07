@@ -1,6 +1,8 @@
 <!--
 [2020.09.08]
 -->
+# Python
+---
 ## 문자열 관련 함수
 
 ### 문자열에 있는 특정 문자 갯수 세기 (count 함수)
@@ -66,3 +68,4 @@ string = 'Sim(Byungki) is byungki'
 print(string.replace('(Byungki)', ''))
 # 결과
 # Sim is byungki</code></pre>
+---
