@@ -44,3 +44,25 @@ print(string.lower())
 # 결과
 # simbyungki</code></pre>
 
+## 문자열 나누기
+<pre><code>string = 'Simbyungki is byungki'
+print(string.split())
+# 인자를 넣지 않으면 default값인 스페이스 기준으로 분리
+# 결과
+# ['Simbyungki', 'is', 'byungki']
+
+string = 'Sim/byung/ki/is/byungki'
+print(string.split('/'))
+# 인자를 넣으면 해당 인자를 기준으로 분리
+# 결과
+# ['Sim', 'byung', 'ki', 'is', 'byungki']</code></pre>
+
+## 문자열 일부를 다른 문자로 바꾸거나 삭제하기
+<pre><code>string = 'SimByungki is byungki'
+print(string.replace('Sim', 'Kim'))
+# 결과
+# KimByungki is byungki
+string = 'Sim(Byungki) is byungki'
+print(string.replace('(Byungki)', ''))
+# 결과
+# Sim is byungki</code></pre>
