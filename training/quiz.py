@@ -1,9 +1,23 @@
 """
+[2020.09.07]
+퀴즈 4.
+1. 다음과 같이 파일 이름(확장자 포함) 저장하고 있는 리스트가 있을 때 확장자를 제거후 다시 리스트로 담아서 출력한다
+> filelist = ['exercise01.docx', 'exercise02.docx', 'exercise03.docx', 'exercise04.docx', 'exercise05.docx'] 
+"""
+filelist = ['exercise01.docx', 'exercise02.docx', 'exercise03.docx', 'exercise04.docx', 'exercise05.docx']
+resultlist = []
+for filename in filelist :
+    resultlist.append(filename.replace('.docx', ''))
+print(resultlist)
+# 결과
+# ['exercise01', 'exercise02', 'exercise03', 'exercise04', 'exercise05']
+
+
+"""
 [2020.09.06]
 퀴즈 3.
 1. 369 게임 출력
 > 1 ~ 31 까지의 숫자를 출력하는데, 3의 배수에는 숫자 대신 "짝" 박수소리를 출력한다.
-
 """
 for i in range(1, 32) : 
     if i % 3 :
