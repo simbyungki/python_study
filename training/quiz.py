@@ -1,10 +1,25 @@
 """
 [2020.09.09]
-퀴즈 6. 
-
+퀴즈 6. (출처 : 점프 투 파이썬)
+1. 0 ~ 9의 문자열 숫자를 입력받았을때 이 입력값이 0~9의 모든 숫자를 각각 한번씩만 사용한 것인지 확인하는 함수를 작성한다.
+> 예 : 입력 0019202220 출력 False
+> 예 : 입력 9807654231 출력 True
 """
+def check_numbers(nums) :
+    num_list = []
+    for num in nums :
+        if num not in num_list:
+            num_list.append(num)
+        else :
+            return False
+    return len(num_list) == 10
 
-
+print(check_numbers('1234567890'))
+# 결과 > True
+print(check_numbers('0192837465'))
+# 결과 > True
+print(check_numbers('1029393847'))
+# 결과 > False
 
 """
 [2020.09.08]
