@@ -1,3 +1,27 @@
+import os
+
+print(os.getcwd())
+
+
+"""
+[2020.09.12]
+퀴즈 8. 
+
+"""
+nums = []
+f_nums = []
+def fibonacci(n):
+	a,b = 1,1
+	if n==1 or n==2:
+		return 1
+		
+	for i in range(n):
+		a,b = b, a+b
+
+	return a
+print(fibonacci(5))
+
+
 """
 [2020.09.11]
 퀴즈 7. (출처 : 프로젝트 오일러-1)
