@@ -53,47 +53,68 @@ def get_today_news(keyword) :
 			# print('<< 기사 요약 형태소 분석 결과 >>')
 			# pprint(kkma.pos(f'{summary}'))
 			# print('>>>')
-			noun_list = kkma.nouns(f'{summary}')
-			
-			result_cnt = {}
+			title_noun_list = kkma.nouns(f'{title}')
+			summary_noun_list = kkma.nouns(f'{summary}')
+
+			# 두글자 이상의 단어만 추출
+			for noun in title_noun_list :
+				if len(noun) < 2 :
+					title_noun_list.remove(noun)
+
+			# 두글자 이상의 단어만 추출
+			for noun in summary_noun_list :
+				if len(noun) < 2 :
+					summary_noun_list.remove(noun)
+			title_noun_cnt = {}
+			summary_result_cnt = {}
+
 			# 보통명사
 			# for pos in pos_list :
 				# if pos[1] == 'NNG' :
 				# 	nng_list.append(pos[0])
 
-			for noun in noun_list :
+			for noun in title_noun_list :				
 				try : 
-					result_cnt[noun] += 1
+					title_noun_cnt[noun] += 1
 				except : 
-					result_cnt[noun] = 1
+					title_noun_cnt[noun] = 1
+
+
+			for noun in summary_noun_list :				
+				try : 
+					summary_result_cnt[noun] += 1
+				except : 
+					summary_result_cnt[noun] = 1
+
+			
 
 			# print(nng_list)
 			# print(result_cnt)
-			df = pd.Series(result_cnt)
+			# df = pd.Series(result_cnt)
 			# print(df.sort_values(ascending=False))
 			# value sort
 			# print(sorted(result_cnt.items(), reverse=True, key=lambda item: item[1]))
 
-
-			
-			if keyword in noun_list :
-				print('오늘 업데이트 된 "오토플러스" 연관 기사')
+			if (keyword in title_noun_list) or (keyword in summary_noun_list) :
+				print(f'오늘 업데이트 된 "{keyword}" 연관 기사')
 				print()
 				print('ㅡ' * 100)
-				print(f'{idx +1}.')
-				print(f'{title}')
+				print(f'{idx +1}. {title}')
+				print(f'{summary}')
 				print(f'{url}')
-				print(summary)
 
 				# 형태소 분석
 				print('<< 기사 제목 형태소 분석 결과 >>')
-				pprint(kkma.nouns(f'{title}'))
-				print()
+				# print(title_noun_list)
+				print(title_noun_cnt)
+			
+				# pprint(kkma.nouns(f'{title}'))
+				# print()
+				# pprint(kkma.nouns(f'{summary}'))
 				print('<< 기사 요약 형태소 분석 결과 >>')
-				pprint(kkma.nouns(f'{summary}'))
-				print('>>>')
-
-				print(df.sort_values(ascending=False))
+				# print(summary_noun_list)
+				print(summary_result_cnt)
+				# print(df.sort_values(ascending=False))
 			else :
 				print('ㅡ' * 60)
 				print (f'[[오늘자로 작성된 "{keyword}" 관련 기사가 존재하지 않습니다.]]')
@@ -103,8 +124,8 @@ def get_today_news(keyword) :
 
 
 if __name__ == "__main__" :
-	# get_today_news('오토플러스')
+	get_today_news('오토플러스')
 	# get_today_news('리본카')
-	get_today_news('케이카')
+	# get_today_news('케이카')
 	# get_today_news('엔카닷컴')
 	# pass
