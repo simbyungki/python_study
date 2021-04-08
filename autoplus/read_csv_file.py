@@ -1,4 +1,6 @@
 import pandas as pd
+import csv
+import urllib
 
 # csv 파일 로드 > encoding > EUC-KR / CP949
 # data = pd.read_csv('C:/Users/PC/Documents/simbyungki/git/python_study/autoplus/csv_file_sample.csv', encoding='CP949')
@@ -9,9 +11,18 @@ import pandas as pd
 # 공백
 # data = pd.read_csv('C:/Users/PC/Documents/simbyungki/git/python_study/autoplus/csv_file_sample.csv', encoding='CP949', delimiter=' ')
 
-# 컬럼명이 없는 경우
-data = pd.read_csv('C:/Users/PC/Documents/simbyungki/git/python_study/autoplus/csv_file_sample_no_column_name.csv', encoding='CP949', names=['넘버', '대리점', '금월매출', '총 판매수량'])
-print(data)
-# NaN 데이터가 있는 row 삭제
-data = data.dropna(subset=['넘버'])
-print(data)
+data = pd.read_csv('C:/Users/PC/Documents/simbyungki/git/python_study/autoplus/GoXPbGQl-uQ.csv', encoding='CP949')
+
+f = open('C:/Users/PC/Documents/simbyungki/git/python_study/autoplus/GoXPbGQl-uQ.csv', 'r')
+rdr = csv.reader(f)
+
+for line in rdr :
+	pass
+	# print(parse.unquote(line[0]))
+
+print(urllib.parse.unquote_plus('%u548C%uC218%uC5F0', encoding='utf-8', errors='replace'))
+
+f.close()
+
+# 데이터 쓰기
+# data['kor'] = []
